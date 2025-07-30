@@ -88,7 +88,10 @@ h2 {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  width: 45px;
+  min-width: 45px;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0px 5px;
   height: 45px;
   background-color: #FA8D00;
   color: white;
@@ -103,6 +106,21 @@ h2 {
   display: flex;
   flex-direction: column;
   gap: 3px;
+}
+.add_form select {
+  outline: 1px solid white;
+  border: 1px solid white;
+  color: white;
+  font-weight: bold;
+  background-color: #FA8D00;
+  border: none;
+  border-radius: 10px;
+  height: -moz-fit-content;
+  height: fit-content;
+  text-align: center;
+  height: 40px;
+  font-size: 1.1em;
+  font-family: "fredoka", "Courier New", Courier, monospace;
 }
 .add_form .botoes_add {
   display: flex;
@@ -152,6 +170,13 @@ h2 {
   color: white;
   font-size: 0.8em;
   font-weight: 100;
+}
+.add_form .inicio-fim {
+  display: flex;
+  justify-content: space-between;
+}
+.add_form .inicio-fim input {
+  width: 50%;
 }
 
 .numeros_participantes::-webkit-scrollbar {
