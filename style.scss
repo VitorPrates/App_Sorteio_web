@@ -120,6 +120,7 @@ h2
         padding: 10px;
         button
         {
+            font-family: 'fredoka', 'Courier New', Courier, monospace;
             border-radius: 10px;
             width: 45%;
             margin: 0px auto;
@@ -128,6 +129,10 @@ h2
             border: none;
             height: 35px;
             border-radius: 7px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1em;
         }
         button:nth-child(1)
         {
@@ -144,15 +149,16 @@ h2
         background-color: #FA8D00;
         border: none;
         border-radius: 10px;
-        height: 35px;
+        height: 45px;
         text-align: center;
-        font-size: 1em;
+        font-size: 1.2em;
         padding: 0px 5px;
         margin: 0px;
     }
     input::placeholder
     {
         color: white;
+        font-size: 0.8em;
         font-weight: 100;
     }
 }
@@ -170,10 +176,10 @@ h2
     .btn_sortear
     {
         font-family: 'fredoka', 'Courier New', Courier, monospace;
-        font-size: 1.4em;
+        font-size: 1.7em;
         width: 95%;
         margin: auto;
-        height: 40px;
+        height: 50px;
         border-radius: 10px;
         outline: none;
         border: 1px solid white;
