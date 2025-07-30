@@ -7,7 +7,7 @@ html {
 
 body {
   width: 99.8%;
-  height: 99.9%;
+  height: 99.9vh;
   font-family: Arial, Helvetica, sans-serif;
   display: flex;
   flex-direction: column;
@@ -155,7 +155,7 @@ h2 {
   width: 100%;
   justify-content: center;
   text-align: center;
-  margin: auto 0px 30px 0px;
+  margin: auto;
 }
 .sortear .btn_sortear {
   font-family: "fredoka", "Courier New", Courier, monospace;
