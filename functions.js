@@ -136,13 +136,16 @@ function Limpar_numeros()
 
     numeros_registrados.length = 0;
     const participantes = document.querySelector(".numeros_participantes");
+    const numero_ja_registrado = document.querySelector(".numero_ja_registrado");
     if(numeros_registrados.length === 0)
     {
         participantes.style.display = "none";
+        numero_ja_registrado.style.display = "none";
     }
     else
     {
         participantes.style.display = "flex";
+        numero_ja_registrado.style.display = "flex";
     }
     participantes.innerHTML = "";
 }
