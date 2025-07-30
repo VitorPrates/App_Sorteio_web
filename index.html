@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorteio PB</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="functions.js"></script>
+
+</head>
+<body>
+    <h1 class="titulo_principal">Controle Sorteio</h1>
+    <h2>Numero Sorteado</h2>
+    <div class="numero_sorteado">
+        <!-- <span>0</span> -->
+    </div>
+    <h2>Numeros Participantes</h2>
+    <div class="numeros_participantes">
+        <!-- <span>5</span> -->
+    </div>
+
+    <form class="add_form" action="#" onsubmit="return Adicionar_numero(this);">
+        <input type="number" name="numeros" id="numeros" min="0" placeholder="Insira aqui os numeros Participantes" >
+        <div class="botoes_add">
+            <button type="button" onclick="Limpar_numeros()">Limpar todos</button>
+            <button type="submit">Adicionar</button>
+        </div>
+    </form>
+
+    <div class="sortear">
+        <button class="btn_sortear" onclick="sortear()">Sortear</button>
+    </div>
+</body>
+</html>
