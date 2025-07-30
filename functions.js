@@ -48,13 +48,16 @@ function organizar_numeros()
 {   
 
     const participantes = document.querySelector(".numeros_participantes");
+    const numero_ja_registrado = document.querySelector(".numero_ja_registrado");
     if(numeros_registrados.length === 0)
     {
         participantes.style.display = "none";
+        numero_ja_registrado.style.display = "none";
     }
     else
     {
         participantes.style.display = "flex";
+        numero_ja_registrado.style.display = "flex";
     }
     numeros_registrados.sort((a,b) => a - b);
 
@@ -69,7 +72,9 @@ function Adicionar_numero(Form) {
     const inicio = Form[2].value.trim();
     const fim = Form[3].value.trim();
     const participantes = document.querySelector(".numeros_participantes");
-    
+    const numero_ja_registrado = document.querySelector(".numero_ja_registrado");
+
+    numero_ja_registrado.style.display = "none";
     if(tipo_form === "Individual" && isNaN(parseInt(valor))) {alert("Insira um número"); return false; }
     else if(tipo_form === "Intervalo" && isNaN(parseInt(inicio))) {alert("Insira um inicio"); return false; }
     else if(tipo_form === "Intervalo" && isNaN(parseInt(fim))) {alert("Insira um fim"); return false; }
@@ -96,11 +101,15 @@ function Adicionar_numero(Form) {
     {
         if (numeros_registrados.includes(parseInt(valor)))
         {
-            alert(`Número ${valor} já registrado`);
+            // alert(`Número ${valor} já registrado`);
+            numero_ja_registrado.style.display = "block";
             Form[1].value = "";
-            return false;
+            // return false;
         }
-        numeros_registrados.push(parseInt(valor));
+        else
+        {
+            numeros_registrados.push(parseInt(valor));
+        }
         // participantes.innerHTML += `<span>${parseInt(valor)}</span>`;
         Form[1].value = "";
     }

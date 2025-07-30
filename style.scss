@@ -70,10 +70,42 @@ h2
         font-size: 3em;
     }
 }
+.participantes
+{
+    width: 100%;
+    position: relative;
+    // background-color: yellow;
+    margin: 0px 0px 25px 0px;
+    
+}
+.numero_ja_registrado
+{
+    // display: none;
+    background-color: red;
+    right: 25px;
+    z-index: 0;
+    top: calc(100% - 25px);
+    height: 15px;
+    position: absolute;
+    width: fit-content;
+    padding: 5px;
+    margin: 0px auto;
+    border-radius: 0px 0px 5px 5px;
+    color: white;
+    font-size: 0.8em;
+    transition: 0.5s all ease-in-out;
+}
+.numero_ja_registrado.active
+{
+    top: 100%;
+}
+
 .numeros_participantes
 {
-    margin: 5px auto 20px auto;
+    z-index: 2;
+    margin: 5px auto 0px auto;
     display: flex;
+    position: relative;
     flex-wrap: wrap;
     justify-content: center;
     gap: 3px;
@@ -88,7 +120,7 @@ h2
     font-weight: 400;
     font-family: "fredoka", 'Courier New', Courier, monospace;;
     border: 1px solid white;
-    background-color: rgba(0, 64, 255, 0.374);
+    background-color: #0051DD;
     span
     {
         display: inline-flex;
