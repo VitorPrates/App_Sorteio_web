@@ -1,4 +1,5 @@
 const numeros_registrados = [];
+const sorteados = [];
 var synth = window.speechSynthesis;
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -73,7 +74,7 @@ function Adicionar_numero(Form) {
     const fim = Form[3].value.trim();
     const participantes = document.querySelector(".numeros_participantes");
     const numero_ja_registrado = document.querySelector(".numero_ja_registrado");
-
+    // const permitirRepeticoes = document.querySelector(".permitir_Repeticoes");
     numero_ja_registrado.style.display = "none";
     if(tipo_form === "Individual" && isNaN(parseInt(valor))) {alert("Insira um número"); return false; }
     else if(tipo_form === "Intervalo" && isNaN(parseInt(inicio))) {alert("Insira um inicio"); return false; }
@@ -160,12 +161,39 @@ function FalarNumero(numero)
 }
 function sortear()
 {
+    const permitirRepeticoes = document.querySelector(".permitir_Repeticoes");
+    const historico_sorteados = document.querySelector(".historico_sorteados");
     if(numeros_registrados.length === 0) {
         alert("Nenhum número registrado");
         return;
     }
+    
     const sorteado = Math.floor(Math.random() * numeros_registrados.length);
+    if(permitirRepeticoes.innerHTML === "Não ")
+    {
+        if(sorteados.includes(numeros_registrados[sorteado])) {sortear(); return;}
+    }
+
+    historico_sorteados.innerHTML = "";
+    sorteados.push(numeros_registrados[sorteado]);
+    sorteados.forEach((num) => {
+        historico_sorteados.innerHTML += `<span>${num}</span>`;
+    })
     const numero_sorteado = document.querySelector(".numero_sorteado");
     numero_sorteado.innerHTML = `<span>${numeros_registrados[sorteado]}</span>`
     FalarNumero(numeros_registrados[sorteado]); 
+    if(permitirRepeticoes.innerHTML === "Não ") {
+        Remover_numero(parseInt(numeros_registrados[sorteado]));
+        // Remover_numero(sorteado);
+    }
+}
+function permitir_Repeticoes()
+{
+    const permitirRepeticoes = document.querySelector(".permitir_Repeticoes");
+    if(permitirRepeticoes.innerHTML === "Não ") {
+        permitirRepeticoes.innerHTML = " ";
+    }
+    else {
+        permitirRepeticoes.innerHTML = "Não ";
+    }
 }
