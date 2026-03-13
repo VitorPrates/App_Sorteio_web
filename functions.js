@@ -159,6 +159,20 @@ function FalarNumero(numero)
     msg.pitch = 1;
     speechSynthesis.speak(msg);
 }
+
+function getSecureRandomIntInclusive(min, max) {
+    const range = max - min + 1;
+    if (range <= 0) return min; // Handle invalid range
+
+    const secureArray = new Uint32Array(1);
+    // Use the full 32-bit range to avoid bias
+    window.crypto.getRandomValues(secureArray); 
+    const randomValue = secureArray[0];
+
+    // Scale the random value to the desired range
+    return Math.floor(randomValue / (2**32 / range)) + min;
+}
+
 function sortear()
 {
     const permitirRepeticoes = document.querySelector(".permitir_Repeticoes");
@@ -168,7 +182,9 @@ function sortear()
         return;
     }
     
-    const sorteado = Math.floor(Math.random() * numeros_registrados.length);
+    // const sorteado = Math.floor(Math.random() * numeros_registrados.length);
+    const sorteado = getSecureRandomIntInclusive(0, numeros_registrados.length - 1);
+    
     if(permitirRepeticoes.innerHTML === "Não ")
     {
         if(sorteados.includes(numeros_registrados[sorteado])) {sortear(); return;}
